@@ -1,5 +1,8 @@
 # RedBlackTree
 
+[![Build Status](https://travis-ci.com/herbstrith/rb_tree.svg?branch=master)](https://travis-ci.com/herbstrith/rb_tree)
+[![Coverage Status](https://coveralls.io/repos/github/herbstrith/rb_tree/badge.svg?branch=master)](https://coveralls.io/github/herbstrith/rb_tree?branch=master)
+
 **TODO: Add description**
 
 ## Installation
