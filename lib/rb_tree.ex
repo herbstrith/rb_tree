@@ -1,7 +1,9 @@
 defmodule RedBlackTree do
   @moduledoc """
-    A red-black tree is approximately balanced
-    A red-black tree is a binary tree that satisfies the following red-black properties:
+    Module for creating and managing red-black trees.
+    Tree nodes have keys (a number that defines the relation between nodes) and data (anything you want).
+
+    A red-black tree is a approximately balanced binary tree that satisfies the following red-black properties:
     1. Every node is either red or black.
     2. The root is black.   * We relax this rule as per to make deletion simpler
     3. Every leaf (NIL) is black.
@@ -17,8 +19,34 @@ defmodule RedBlackTree do
   alias RedBlackTree, as: RBNode
   defstruct key: nil, left: nil, right: nil, data: nil, color: nil
 
+  @doc """
+  Creates a tree node.
+
+  Returns `${key: nil, left: nil, right: nil, data: nil, color: nil}`.
+
+  ## Examples
+
+      iex> RedBlackTree.create()
+      ${key: nil, left: nil, right: nil, data: nil, color: nil}
+
+  """
   def create() do
     %RBNode{}
+  end
+
+  @doc """
+  Creates a tree node.
+
+  Returns `${key: nil, left: nil, right: nil, data: nil, color: nil}`.
+
+  ## Examples
+
+      iex> RedBlackTree.create(1, ${x: "my data"})
+      ${key: 1, left: nil, right: nil, data: ${x: "my data"}), color: nil}
+
+  """
+  def create(key, data) do
+    %RBNode{key: key, data: data}
   end
 
   defp balance(
@@ -181,16 +209,49 @@ defmodule RedBlackTree do
     }
   end
 
+  @doc """
+  Inserts a node in a tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.create(%RBNode{})
+      %RBNode{}
+
+  """
   def insert(new_node = %RBNode{}) do
     blacken(insert_rec(nil, new_node))
   end
 
+  @doc """
+  Inserts a node in a tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.create(nil, %RBNode{})
+      %RBNode{}
+
+  """
   def insert(nil, new_node = %RBNode{}) do
     blacken(insert_rec(nil, new_node))
   end
 
-  def insert(actual_tree_node = %RBNode{}, new_node = %RBNode{}) do
-    blacken(insert_rec(actual_tree_node, new_node))
+  @doc """
+  Inserts a given `new_node` in a `tree_root_node` tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.create(%RBNode{}, %RBNode{})
+      %RBNode{}
+
+  """
+  def insert(tree_root_node = %RBNode{}, new_node = %RBNode{}) do
+    blacken(insert_rec(tree_root_node, new_node))
   end
 
   defp blacken(node = %RBNode{color: :red, left: %RBNode{color: :red}}) do
@@ -232,8 +293,19 @@ defmodule RedBlackTree do
     end
   end
 
-  def delete(actual_tree_node = %RBNode{}, delete_key) do
-    result = delete_rec(redden(actual_tree_node), delete_key)
+  @doc """
+  deletes a node that has the given `key` in a `tree_root_node` tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.delete(%RBNode{}, %RBNode{})
+      %RBNode{}
+
+  """
+  def delete(tree_root_node = %RBNode{}, delete_key) do
+    result = delete_rec(redden(tree_root_node), delete_key)
     result
   end
 
@@ -545,14 +617,47 @@ defmodule RedBlackTree do
     {xl, rotate(actual_tree_node.color, al, x, actual_tree_node.right)}
   end
 
+  @doc """
+  Searches for a node that has the given `key` in a `tree_root_node` tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.search(%RBNode{}, nil)
+      %RBNode{}
+
+  """
   def search(_treeNode, _key = nil) do
     nil
   end
 
+  @doc """
+  Searches for a node that has the given `key` in a `tree_root_node` tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.search(nil, 5)
+      %RBNode{}
+
+  """
   def search(_treeNode = nil, _key) do
     nil
   end
 
+  @doc """
+  Searches for a node that has the given `key` in a `tree_root_node` tree.
+
+  Returns `${key: Number, left: %RBNode{}, right: %RBNode{}, data: :data, color: :red | :black | :blackblack }`.
+
+  ## Examples
+
+      iex> RedBlackTree.search(%RBNode{}, 5)
+      %RBNode{}
+
+  """
   def search(treeNode = %RBNode{}, key) do
     if treeNode.key == key do
       treeNode
