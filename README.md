@@ -16,6 +16,7 @@ A red-black tree is a approximately balanced binary tree that satisfies the foll
 
 Using the implementantion of insert from the article
 "Red-black trees in a functional setting" by Chris Okasaki
+
 Using the delete implementation from the article
 "FUNCTIONAL PEARL Deletion: The curse of the red-black tree" by Kimball Germane and Matthew Might
 ## Installation

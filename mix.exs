@@ -8,8 +8,9 @@ defmodule RedBlackTree.MixProject do
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      # Docs
       name: "RedBlackTree",
+      description: "An example open source Elixir application.",
+      # Docs
       source_url: "https://github.com/herbstrith/rb_tree",
       homepage_url: "https://github.com/herbstrith/rb_tree",
       docs: [
@@ -31,6 +32,7 @@ defmodule RedBlackTree.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:credo, "~> 0.8", only: [:dev, :test]},
       {:excoveralls, github: "parroty/excoveralls"}
     ]
   end

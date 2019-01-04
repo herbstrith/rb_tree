@@ -324,16 +324,18 @@ defmodule RedBlackTree do
   end
 
   defp delete_rec(actual_tree_node = %RBNode{color: :red, left: nil, right: nil}, delete_key) do
-    cond do
-      actual_tree_node.key == delete_key -> nil
-      actual_tree_node.key != delete_key -> actual_tree_node
+    if actual_tree_node.key == delete_key do
+      nil
+    else
+      actual_tree_node
     end
   end
 
   defp delete_rec(actual_tree_node = %RBNode{color: :black, left: nil, right: nil}, delete_key) do
-    cond do
-      actual_tree_node.key == delete_key -> :emptyempty
-      actual_tree_node.key != delete_key -> actual_tree_node
+    if actual_tree_node.key == delete_key do
+      :emptyempty
+    else
+      actual_tree_node
     end
   end
 
@@ -628,7 +630,7 @@ defmodule RedBlackTree do
       %RBNode{}
 
   """
-  def search(_treeNode, _key = nil) do
+  def search(_tree_root_node, _key = nil) do
     nil
   end
 
@@ -643,7 +645,7 @@ defmodule RedBlackTree do
       %RBNode{}
 
   """
-  def search(_treeNode = nil, _key) do
+  def search(_tree_root_node = nil, _key) do
     nil
   end
 
@@ -658,14 +660,14 @@ defmodule RedBlackTree do
       %RBNode{}
 
   """
-  def search(treeNode = %RBNode{}, key) do
-    if treeNode.key == key do
-      treeNode
+  def search(tree_root_node = %RBNode{}, key) do
+    if tree_root_node.key == key do
+      tree_root_node
     else
-      if treeNode.key > key do
-        search(treeNode.left, key)
+      if tree_root_node.key > key do
+        search(tree_root_node.left, key)
       else
-        search(treeNode.right, key)
+        search(tree_root_node.right, key)
       end
     end
   end

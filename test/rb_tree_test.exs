@@ -53,8 +53,8 @@ defmodule RedBlackTreeTests do
     assert rb_tree.key == 15
     assert rb_tree.data == 15
 
-    rb_tree =
-      RBTree.insert(rb_tree, %RBTree{key: 25, data: 25})
+    rb_tree = rb_tree
+      |> RBTree.insert(%RBTree{key: 25, data: 25})
       |> RBTree.insert(%RBTree{key: 30, data: 30})
 
     assert rb_tree.left.key == 14
@@ -68,8 +68,8 @@ defmodule RedBlackTreeTests do
     assert rb_tree.right.left.key == 20
     assert rb_tree.right.left.data == 20
 
-    rb_tree =
-      RBTree.insert(rb_tree, %RBTree{key: 23, data: 23})
+    rb_tree = rb_tree
+      |> RBTree.insert(%RBTree{key: 23, data: 23})
       |> RBTree.insert(%RBTree{key: 22, data: 22})
       |> RBTree.insert(%RBTree{key: 19, data: 19})
 
@@ -123,8 +123,8 @@ defmodule RedBlackTreeTests do
       |> RBTree.insert(%RBTree{key: 7, data: 7})
       |> RBTree.insert(%RBTree{key: 8, data: 8})
 
-    rb_tree =
-      RBTree.delete(rb_tree, 14)
+    rb_tree = rb_tree 
+      |> RBTree.delete(14)
       |> RBTree.delete(15)
       |> RBTree.delete(20)
       |> RBTree.delete(22)
