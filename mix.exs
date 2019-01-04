@@ -9,7 +9,7 @@ defmodule RedBlackTree.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "RedBlackTree",
-      description: "An example open source Elixir application.",
+      description: "Module for creating and managing red-black trees",
       # Docs
       source_url: "https://github.com/herbstrith/rb_tree",
       homepage_url: "https://github.com/herbstrith/rb_tree",
@@ -19,7 +19,8 @@ defmodule RedBlackTree.MixProject do
         licenses: ["MIT"],
         links: %{
           "GitHub" => "https://github.com/herbstrith/rb_tree",
-      },
+        }
+      ],
       docs: [
         main: "RedBlackTree", # The main page in the docs
         extras: ["README.md", "CHANGELOG.md"]
