@@ -13,9 +13,16 @@ defmodule RedBlackTree.MixProject do
       # Docs
       source_url: "https://github.com/herbstrith/rb_tree",
       homepage_url: "https://github.com/herbstrith/rb_tree",
+      files: ~w(mix.exs lib LICENSE.md README.md CHANGELOG.md),
+      package: [
+        maintainers: ["Vinicius Herbstrith"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => "https://github.com/herbstrith/rb_tree",
+      },
       docs: [
         main: "RedBlackTree", # The main page in the docs
-        extras: ["README.md"]
+        extras: ["README.md", "CHANGELOG.md"]
       ],
       test_coverage: [tool: ExCoveralls]
     ]
