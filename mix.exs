@@ -13,13 +13,13 @@ defmodule RedBlackTree.MixProject do
       # Docs
       source_url: "https://github.com/herbstrith/rb_tree",
       homepage_url: "https://github.com/herbstrith/rb_tree",
-      files: ~w(mix.exs lib LICENSE.md README.md CHANGELOG.md),
       package: [
         maintainers: ["Vinicius Herbstrith"],
         licenses: ["MIT"],
         links: %{
           "GitHub" => "https://github.com/herbstrith/rb_tree",
-        }
+        },
+        files: ~w(mix.exs lib LICENSE.md README.md CHANGELOG.md)
       ],
       docs: [
         main: "RedBlackTree", # The main page in the docs
@@ -41,7 +41,7 @@ defmodule RedBlackTree.MixProject do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
       {:credo, "~> 0.8", only: [:dev, :test]},
-      {:excoveralls, github: "parroty/excoveralls"}
+      {:excoveralls, "~> 0.10", only: :test},
     ]
   end
 end
