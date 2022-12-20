@@ -529,7 +529,7 @@ defmodule RedBlackTree do
                 right: right_node.left.left
             },
             %{right_node.left | left: nil, right: nil},
-            right_node.left.left
+            right_node.left.right
           )
     }
   end
